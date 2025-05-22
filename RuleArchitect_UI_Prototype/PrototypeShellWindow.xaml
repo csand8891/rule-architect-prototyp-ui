@@ -1,0 +1,90 @@
+﻿<Window x:Class="RuleArchitect_UI_Prototype.PrototypeShellWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RuleArchitect_UI_Prototype"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="UI Layout Prototypes" Height="720" Width="1280"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{materialDesign:MaterialDesignFont}">
+    <Grid>
+        <materialDesign:DialogHost Identifier="RootDialogHost" CloseOnClickAway="True">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" MinWidth="200"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Column="0"
+                Background="{DynamicResource PrimaryHueMidBrush}"
+                Effect="{StaticResource MaterialDesignShadowDepth1}">
+                    <StackPanel Margin="0">
+                        <TextBlock Text="RuleArchitect"
+                           Style="{StaticResource MaterialDesignHeadline6TextBlock}"
+                           Padding="16" HorizontalAlignment="Center"
+                           Foreground="{DynamicResource SecondaryMidBrush}"/>
+                        <ListBox x:Name="NavigationListBox"
+                         SelectedIndex="0"
+                         SelectionChanged="NavigationListBox_SelectionChanged"
+                         Style="{StaticResource MaterialDesignNavigationPrimaryListBox}"
+                         Background="Transparent">
+                            <ListBox.ItemContainerStyle>
+                                <Style TargetType="ListBoxItem" BasedOn="{StaticResource MaterialDesignNavigationListBoxItem}">
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter Property="Background" Value="{DynamicResource PrimaryHueLightBrush}"/>
+                                            <Setter Property="TextElement.Foreground" Value="{DynamicResource SecondaryMidBrush}"/>
+                                        </Trigger>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="{DynamicResource PrimaryHueDarkBrush}" />
+                                            <Setter Property="Background" Value="{DynamicResource SecondaryMidBrush}" />
+
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </ListBox.ItemContainerStyle>
+
+                            <ListBoxItem x:Name="AdminNavItem">
+                                <StackPanel Orientation="Horizontal" TextElement.Foreground="{DynamicResource SecondaryLightBrush}">
+                                    <materialDesign:PackIcon Kind="ShieldAccount" Margin="0,0,10,0" VerticalAlignment="Center"/>
+                                    <TextBlock Text="Admin Dashboard"/>
+                                </StackPanel>
+                            </ListBoxItem>
+                            <ListBoxItem x:Name="OrderReviewerNavItem">
+                                <StackPanel Orientation="Horizontal" TextElement.Foreground="{DynamicResource SecondaryLightBrush}">
+                                    <materialDesign:PackIcon Kind="ClipboardTextSearchOutline" Margin="0,0,10,0" VerticalAlignment="Center"/>
+                                    <TextBlock Text="Order Reviewer"/>
+                                </StackPanel>
+                            </ListBoxItem>
+                            <ListBoxItem x:Name="RulesheetsNavItem">
+                                <StackPanel Orientation="Horizontal" TextElement.Foreground="{DynamicResource SecondaryLightBrush}">
+                                    <materialDesign:PackIcon Kind="FileDocumentMultipleOutline" Margin="0,0,10,0" VerticalAlignment="Center"/>
+                                    <TextBlock Text="Rulesheets (All)"/>
+                                </StackPanel>
+                            </ListBoxItem>
+                            <ListBoxItem x:Name="OrderProductionNavItem">
+                                <StackPanel Orientation="Horizontal" TextElement.Foreground="{DynamicResource SecondaryLightBrush}">
+                                    <materialDesign:PackIcon Kind="CogPlayOutline" Margin="0,0,10,0" VerticalAlignment="Center"/>
+                                    <TextBlock Text="Order Production Dashboard" />
+                                </StackPanel>
+                            </ListBoxItem>
+                            <ListBoxItem x:Name="ProdReviewerNavItem">
+                                <StackPanel Orientation="Horizontal" TextElement.Foreground="{DynamicResource SecondaryLightBrush}">
+                                    <materialDesign:PackIcon Kind="ClipboardCheckOutline" Margin="0,0,10,0" VerticalAlignment="Center"/>
+                                    <TextBlock Text="Prod. Reviewer" />
+                                </StackPanel>
+                            </ListBoxItem>
+                        </ListBox>
+                    </StackPanel>
+                </Border>
+
+                <Border Grid.Column="1" Margin="5">
+                    <Frame x:Name="PrototypeFrame" NavigationUIVisibility="Hidden"/>
+                </Border>
+            </Grid>
+        </materialDesign:DialogHost>
+    </Grid>
+</Window>
