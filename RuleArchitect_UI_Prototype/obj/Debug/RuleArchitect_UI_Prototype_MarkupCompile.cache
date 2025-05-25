@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\corey\dev\RuleArchitect_UI_Prototype\RuleArchitect_UI_Prototype\obj\Debug\
+C:\Users\corey\software_dev\work\rule-architect-prototyp-ui\RuleArchitect_UI_Prototype\obj\Debug\
 RuleArchitect_UI_Prototype
 none
 false
 DEBUG;TRACE
-C:\Users\corey\dev\RuleArchitect_UI_Prototype\RuleArchitect_UI_Prototype\App.xaml
-81517810524
+C:\Users\corey\software_dev\work\rule-architect-prototyp-ui\RuleArchitect_UI_Prototype\App.xaml
+92013570328
 
-18-1918048765
-16-1412883378
-AdminDashboardPrototypePage.xaml;LoginScreenPrototypePage.xaml;MainWindow.xaml;OrderProductionDashboardPrototypePage.xaml;OrderReviewerDashboardPrototypePage.xaml;ProdReviewerDashboardPrototypePage.xaml;PrototypeShellWindow.xaml;UniversalRulesheetsPrototypePage.xaml;
+22-836581726
+16234006795
+AdminDashboardPrototypePage.xaml;Controls\RulesheetCardControl.xaml;LoginScreenPrototypePage.xaml;MainWindow.xaml;OrderProductionDashboardPrototypePage.xaml;OrderReviewerDashboardPrototypePage.xaml;ProdReviewerDashboardPrototypePage.xaml;PrototypeShellWindow.xaml;UniversalRulesheetsPrototypePage.xaml;
 
 False
 

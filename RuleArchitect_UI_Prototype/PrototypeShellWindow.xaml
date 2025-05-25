@@ -46,7 +46,12 @@
                                     </Style.Triggers>
                                 </Style>
                             </ListBox.ItemContainerStyle>
-
+                            <ListBoxItem x:Name="LoginNavItem">
+                            <StackPanel Orientation="Horizontal" TextElement.Foreground="{DynamicResource SecondaryLightBrush}">
+                                <materialDesign:PackIcon Kind="LoginVariant" Margin="0,0,10,0" VerticalAlignment="Center"/>
+                                <TextBlock Text="LoginPrototypePage"/>
+                            </StackPanel>
+                            </ListBoxItem>
                             <ListBoxItem x:Name="AdminNavItem">
                                 <StackPanel Orientation="Horizontal" TextElement.Foreground="{DynamicResource SecondaryLightBrush}">
                                     <materialDesign:PackIcon Kind="ShieldAccount" Margin="0,0,10,0" VerticalAlignment="Center"/>

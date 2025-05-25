@@ -59,6 +59,10 @@ namespace RuleArchitect_UI_Prototype
             {
                 PrototypeFrame.Navigate(new UniversalRulesheetsPrototypePage());
             }
+            else if (selectedItem == LoginNavItem)
+            {
+                PrototypeFrame.Navigate(new LoginScreenPrototypePage());
+            }
             // Add more cases for other navigation items like Settings, Logout etc.
         }
 
@@ -87,6 +91,18 @@ namespace RuleArchitect_UI_Prototype
         //{
         //    SelectNavItemAndNavigate(RulesheetsNavItem, new UniversalRulesheetsPrototypePage());
         //}
+        private void LoginScreen_Click(object sender, RoutedEventArgs e)
+        {
+            PrototypeFrame.Navigate(new LoginScreenPrototypePage());
+            // Or if using ListBox selection:
+            // SelectNavItemAndNavigate(LoginScreenNavItem, new LoginScreenPrototypePage());
+        }
+
+        // In NavigationListBox_SelectionChanged or NavigateToSelectedPage:
+        // else if (selectedItem == LoginScreenNavItem)
+        // {
+        //     PrototypeFrame.Navigate(new LoginScreenPrototypePage());
+        // }
 
         // Helper to select ListBoxItem when top button is clicked (optional)
         private void SelectNavItemAndNavigate(ListBoxItem itemToSelect, Page pageToNavigate)

@@ -1,0 +1,68 @@
+﻿<UserControl x:Class="RuleArchitect_UI_Prototype.Controls.RulesheetCardControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:RuleArchitect_UI_Prototype.Controls"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d"
+             d:DesignHeight="300" d:DesignWidth="350" Name="self">
+
+    <materialDesign:Card Width="350" Margin="8" Padding="0" UniformCornerRadius="8" materialDesign:ShadowAssist.ShadowDepth="Depth2">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <materialDesign:ColorZone Grid.Row="0" Mode="PrimaryMid" Padding="12 8" CornerRadius="8,8,0,0">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="{Binding HeaderIconKind, ElementName=self, FallbackValue=FileDocumentOutline}"
+                                             VerticalAlignment="Center" Margin="0,0,8,0" Width="20" Height="20"/>
+                    <TextBlock Text="{Binding OptionName, ElementName=self, FallbackValue='Rulesheet Name Here'}"
+                               Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
+                               FontWeight="Medium"
+                               TextTrimming="CharacterEllipsis"/>
+                </StackPanel>
+            </materialDesign:ColorZone>
+
+            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" MaxHeight="200">
+                <StackPanel Margin="16">
+                    <TextBlock Style="{StaticResource MaterialDesignBody2TextBlock}" TextWrapping="Wrap" Margin="0,0,0,5">
+                        <Run FontWeight="SemiBold" Text="Control Type:"/>
+                        <Run Text="{Binding ControlType, ElementName=self, FallbackValue='N/A'}"/>
+                    </TextBlock>
+
+                    <TextBlock Style="{StaticResource MaterialDesignBody2TextBlock}" TextWrapping="Wrap" Margin="0,0,0,5">
+                        <Run FontWeight="SemiBold" Text="Option #:"/> 
+                        <Run Text="{Binding PrimaryOptionNumberDisplay, ElementName=self, FallbackValue='N/A'}"/>
+                    </TextBlock>
+
+                    <TextBlock Text="Spec Codes:" FontWeight="SemiBold" Style="{StaticResource MaterialDesignBody2TextBlock}" Margin="0,8,0,2"/>
+                    <TextBlock Text="{Binding SpecCodesSummary, ElementName=self, FallbackValue='No spec codes defined.'}"
+                               TextWrapping="Wrap" FontSize="11"
+                               Style="{StaticResource MaterialDesignCaptionTextBlock}" MaxHeight="60" TextTrimming="CharacterEllipsis"/>
+
+                    <TextBlock Text="Activation Rule:" FontWeight="SemiBold" Style="{StaticResource MaterialDesignBody2TextBlock}" Margin="0,8,0,2"/>
+                    <TextBlock Text="{Binding ActivationRuleSummary, ElementName=self, FallbackValue='No activation rules.'}"
+                               TextWrapping="Wrap" FontSize="11"
+                               Style="{StaticResource MaterialDesignCaptionTextBlock}" MaxHeight="60" TextTrimming="CharacterEllipsis"/>
+
+                    <TextBlock Text="Notes:" FontWeight="SemiBold" Style="{StaticResource MaterialDesignBody2TextBlock}" Margin="0,8,0,2"/>
+                    <TextBlock Text="{Binding SoftwareOptionNotes, ElementName=self, FallbackValue='No notes.'}"
+                               TextWrapping="Wrap" FontStyle="Italic" FontSize="10"
+                               Style="{StaticResource MaterialDesignCaptionTextBlock}" MaxHeight="40" TextTrimming="CharacterEllipsis"/>
+                </StackPanel>
+            </ScrollViewer>
+
+            <Border Grid.Row="2" BorderBrush="{DynamicResource MaterialDesignDivider}" BorderThickness="0,1,0,0" Padding="8">
+                <Button Style="{StaticResource MaterialDesignFlatButton}"
+                        Command="{Binding ActionCommand, ElementName=self}"
+                        CommandParameter="{Binding ActionCommandParameter, ElementName=self}"
+                        HorizontalAlignment="Right"
+                        Content="{Binding ActionText, ElementName=self, FallbackValue='VIEW DETAILS'}"/>
+            </Border>
+        </Grid>
+    </materialDesign:Card>
+</UserControl>

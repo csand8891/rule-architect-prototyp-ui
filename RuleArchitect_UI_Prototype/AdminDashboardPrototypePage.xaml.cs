@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RuleArchitect_UI_Prototype.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,17 +13,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+//using RuleArchitect_UI_Prototype.ViewModels;
 
 namespace RuleArchitect_UI_Prototype
 {
-    /// <summary>
-    /// Interaction logic for AdminDashboardPrototypePage.xaml
-    /// </summary>
     public partial class AdminDashboardPrototypePage : UserControl
     {
         public AdminDashboardPrototypePage()
         {
             InitializeComponent();
+            // Set DataContext for runtime (important for prototype behavior)
+            this.DataContext = new SampleAdminDashboardViewModel();
         }
     }
 }

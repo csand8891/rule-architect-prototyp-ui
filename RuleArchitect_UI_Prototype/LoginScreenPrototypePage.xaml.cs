@@ -1,28 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using RuleArchitect_UI_Prototype.ViewModels;
+// Add the correct using for your SampleLoginViewModel
+
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace RuleArchitect_UI_Prototype
 {
-    /// <summary>
-    /// Interaction logic for LoginScreenPrototypePage.xaml
-    /// </summary>
     public partial class LoginScreenPrototypePage : UserControl
     {
         public LoginScreenPrototypePage()
         {
             InitializeComponent();
+            // Set DataContext for runtime (important for prototype behavior)
+            this.DataContext = new SampleLoginViewModel();
+        }
+
+        // Optional: If you want to simulate the login button click for the prototype
+        // without fully implementing ICommand in the sample ViewModel
+        private void LoginButton_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            if (this.DataContext is SampleLoginViewModel vm)
+            {
+                // For prototype, you might manually get password if not binding securely
+                // vm.Password = PasswordBox.Password; // Example if you wanted to pass it
+                vm.Login();
+            }
         }
     }
 }

@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:RuleArchitect_UI_Prototype"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             xmlns:designViewModels="clr-namespace:RuleArchitect_UI_Prototype.ViewModels" mc:Ignorable="d"
+             xmlns:designViewModels="clr-namespace:RuleArchitect_UI_Prototype.ViewModels" xmlns:localControls="clr-namespace:RuleArchitect_UI_Prototype.Controls"   xmlns:sampleData="clr-namespace:RuleArchitect_UI_Prototype.SampleData" mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="800"
              d:DataContext="{d:DesignInstance Type=designViewModels:SampleOrderProductionViewModel, IsDesignTimeCreatable=True}">
     <ScrollViewer VerticalScrollBarVisibility="Auto">
@@ -20,22 +20,22 @@
             <ItemsControl ItemsSource="{Binding AttachedRulesheets}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <WrapPanel/>
+                        <WrapPanel Orientation="Horizontal"/>
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
                 <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <materialDesign:Card Width="280" Margin="8" Padding="16">
-                            <StackPanel>
-                                <TextBlock Text="{Binding Name}" FontWeight="Bold" Style="{StaticResource MaterialDesignSubtitle1TextBlock}"/>
-                                <TextBlock Text="{Binding Version, StringFormat='Version: {0}'}"/>
-                                <TextBlock Text="{Binding ControlSystem, StringFormat='System: {0}'}"/>
-                                <TextBlock Text="{Binding PrimaryOptionNumberDisplay, StringFormat='Option #: {0}'}" Margin="0,2"/>
-                                <TextBlock Text="{Binding KeyParametersSummary}" TextWrapping="Wrap" Margin="0,5,0,0" FontSize="11" MaxHeight="60" TextTrimming="CharacterEllipsis"/>
-                                <TextBlock Text="{Binding NotesPreview}" TextWrapping="Wrap" Margin="0,5,0,0" FontStyle="Italic" FontSize="10" MaxHeight="40" TextTrimming="CharacterEllipsis"/>
-                                <Button Content="View Full Details" Style="{StaticResource MaterialDesignOutlinedButton}" Margin="0,8,0,0" HorizontalAlignment="Right"/>
-                            </StackPanel>
-                        </materialDesign:Card>
+                    <DataTemplate DataType="{x:Type sampleData:SampleRulesheetCard}">
+                        <localControls:RulesheetCardControl
+                            HeaderIconKind="FileChartOutline" HeaderText="{Binding Name}"     OptionName="{Binding Name}"
+                            ControlType="{Binding ControlSystem}"
+                            PrimaryOptionNumberDisplay="{Binding PrimaryOptionNumberDisplay}"
+                            SpecCodesSummary="{Binding SpecCodesSummary}"
+                            ActivationRuleSummary="{Binding ActivationRuleSummary}"
+                            SoftwareOptionNotes="{Binding Notes}"
+                            Version="{Binding Version}" 
+                            ActionText="Full View"
+                            ActionCommand="{Binding DataContext.ViewRulesheetDetailsCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                            ActionCommandParameter="{Binding Id}"/>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>

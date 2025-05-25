@@ -69,6 +69,10 @@
     <Compile Include="AdminDashboardPrototypePage.xaml.cs">
       <DependentUpon>AdminDashboardPrototypePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\RulesheetCardControl.xaml.cs">
+      <DependentUpon>RulesheetCardControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\NullToBooleanConverter.cs" />
     <Compile Include="LoginScreenPrototypePage.xaml.cs">
       <DependentUpon>LoginScreenPrototypePage.xaml</DependentUpon>
     </Compile>
@@ -91,9 +95,15 @@
     <Compile Include="UniversalRulesheetsPrototypePage.xaml.cs">
       <DependentUpon>UniversalRulesheetsPrototypePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\SampleAdminDashboardViewModel.cs" />
+    <Compile Include="ViewModels\SampleLoginViewModel.cs" />
     <Compile Include="ViewModels\SampleOrderProductionViewModel.cs" />
     <Compile Include="ViewModels\SampleOrderReviewerViewModel.cs" />
     <Page Include="AdminDashboardPrototypePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\RulesheetCardControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -161,6 +171,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
